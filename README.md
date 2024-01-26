@@ -70,7 +70,3 @@ After starting the application with `npm start`, it will be available at [http:/
 - `src/components/Note.jsx`: Component for displaying each note.
 - `src/components/CreateArea.jsx`: Manages the note creation form.
 - `src/App.jsx`: The main application component combining all other components.
-
-## Contributions
-
-Feel free to fork the project and submit pull requests for improvements or new features.
