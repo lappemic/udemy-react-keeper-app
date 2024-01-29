@@ -8,6 +8,7 @@ function CreateArea(props) {
 
   function handleChange(event) {
     const { name, value } = event.target;
+
     setNote(prevNote => {
       return {
         ...prevNote,
@@ -16,28 +17,27 @@ function CreateArea(props) {
     });
   }
 
+  function submitNote(event) {
+    props.onAdd(note);
+    setNote({
+      title: '',
+      content: '',
+    });
+    event.preventDefault();
+  }
+
   return (
     <div>
-      <form>
-        <input name='title' placeholder='Title' onChange={handleChange} value={note.title} />
+      <form className='create-note'>
+        <input name='title' onChange={handleChange} value={note.title} placeholder='Title' />
         <textarea
           name='content'
-          placeholder='Take a note...'
-          rows='3'
           onChange={handleChange}
           value={note.content}
+          placeholder='Take a note...'
+          rows='3'
         />
-        <button
-          onClick={event => {
-            props.onAdd(note);
-            setNote({
-              title: '',
-              content: '',
-            });
-            event.preventDefault();
-          }}>
-          Add
-        </button>
+        <button onClick={submitNote}>Add</button>
       </form>
     </div>
   );
